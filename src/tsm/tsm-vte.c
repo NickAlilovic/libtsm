@@ -3311,7 +3311,7 @@ bool tsm_vte_handle_mouse(struct tsm_vte *vte, unsigned int cell_x,
 
 		vte_write(vte, buffer, strlen(buffer));
 		return true;
-	} else if (vte->mouse_mode == TSM_VTE_MOUSE_MODE_SGR && vte->mouse_event) {
+	} else if (vte->mouse_mode == TSM_VTE_MOUSE_MODE_SGR) {
 		if (event & TSM_MOUSE_EVENT_MOVED) {
 			if (cell_x == vte->mouse_last_col && cell_y == vte->mouse_last_row) {
 				return false;
@@ -3328,7 +3328,7 @@ bool tsm_vte_handle_mouse(struct tsm_vte *vte, unsigned int cell_x,
 
 		vte_write(vte, buffer, strlen(buffer));
 		return true;
-	} else if (vte->mouse_mode == TSM_VTE_MOUSE_MODE_PIXEL && vte->mouse_event) {
+	} else if (vte->mouse_mode == TSM_VTE_MOUSE_MODE_PIXEL) {
 		if (event == TSM_MOUSE_EVENT_MOVED) {
 			reply_flags = 35;
 			pressed = true;
