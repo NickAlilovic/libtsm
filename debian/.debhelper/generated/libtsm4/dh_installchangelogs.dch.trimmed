@@ -1,0 +1,39 @@
+libtsm (4.3.0-1) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload using local source (4.3.0).
+  * Built for Radxa Cubie-A7A platform.
+
+ -- Nick Alilovic <nickalilovic@gmail.com>  Tue, 10 Dec 2025 20:29:47 -0500
+
+libtsm (4.0.2-0.4) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Switch /usr/share/doc/libtsm-dev from dir to symlink on upgrade.
+    Thanks to Andreas Beckmann for reporting this packaging error
+    (Closes: 1035764)
+
+ -- Victor Westerhuis <victor@westerhu.is>  Tue, 09 May 2023 07:41:51 +0200
+
+libtsm (4.0.2-0.3) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Ensure that the CMake config files always point to the shared library.
+    (Closes: #1010350)
+
+ -- Victor Westerhuis <victor@westerhu.is>  Fri, 29 Apr 2022 21:18:06 +0200
+
+libtsm (4.0.2-0.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Revert Maintainer (replaced by mistake)
+  * Drop Vcs fields
+
+ -- Bastian Germann <bage@debian.org>  Thu, 28 Apr 2022 10:16:55 +0200
+
+libtsm (4.0.2-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload
+  * Switch upstream to maintained fork.
+  * New upstream release. (Closes: #1004921)
+
+ -- Victor Westerhuis <victor@westerhu.is>  Sat, 19 Feb 2022 18:41:17 +0100

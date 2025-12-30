@@ -1,0 +1,45 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+
+include /usr/share/dpkg/default.mk
+
+
+export DEB_BUILD_MAINT_OPTIONS := qa=+bug hardening=+all reproducible=+all
+export DPKG_GENSYMBOLS_CHECK_LEVEL := 4
+
+
+%:
+	dh $@
+
+
+override_dh_auto_configure:
+	# Configure shared build
+	dh_auto_configure -B build-shared -- -Ddefault_library=shared	
+	# Configure static build (ensures libtsm.a is built in build-static)
+	DEB_BUILD_MAINT_OPTIONS="$(DEB_BUILD_MAINT_OPTIONS) optimize=-lto" \
+		dh_auto_configure -B build-static --reload-all-buildenv-variables -- -Ddefault_library=static
+
+override_dh_auto_build:
+	dh_auto_build -B build-shared
+	dh_auto_build -B build-static
+
+override_dh_auto_test:
+	dh_auto_test -B build-shared
+	dh_auto_test -B build-static
+
+override_dh_auto_install:
+	# 1. Install files from the shared library build (includes .so, headers, pkgconfig)
+	dh_auto_install -B build-shared
+	# 2. Clean up the now unnecessary cmake files (using the -fR fix)
+	rm -fR debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/cmake
+
+override_dh_installdocs:
+	dh_installdocs -plibtsm-dev --link-doc=libtsm4
+	dh_installdocs --remaining-packages
+
+override_dh_auto_clean:
+	dh_auto_clean -B build-shared
+	dh_auto_clean -B build-static

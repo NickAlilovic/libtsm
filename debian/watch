@@ -1,0 +1,4 @@
+version=4
+
+https://github.com/Aetf/libtsm/releases \
+    .*/v@ANY_VERSION@\.tar\.(?:gz|bz2|xz) debian

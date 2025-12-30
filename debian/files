@@ -1,0 +1,4 @@
+libtsm-dev_4.3.0-1_arm64.deb libdevel optional
+libtsm4-dbgsym_4.3.0-1_arm64.deb debug optional automatic=yes
+libtsm4_4.3.0-1_arm64.deb libs optional
+libtsm_4.3.0-1_arm64.buildinfo libs optional

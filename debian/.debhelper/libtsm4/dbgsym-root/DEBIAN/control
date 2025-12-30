@@ -1,0 +1,13 @@
+Package: libtsm4-dbgsym
+Source: libtsm
+Version: 4.3.0-1
+Auto-Built-Package: debug-symbols
+Architecture: arm64
+Maintainer: Nobuhiro Iwamatsu <iwamatsu@debian.org>
+Installed-Size: 31
+Depends: libtsm4 (= 4.3.0-1)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Description: debug symbols for libtsm4
+Build-Ids: d5bdbdf160d84ef6609e9d620ac3b9a71e448933

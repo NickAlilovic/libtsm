@@ -1,0 +1,10 @@
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib/aarch64-linux-gnu
+
+Name: libtsm
+Description: terminal-emulator state machine
+URL: https://github.com/Aetf/libtsm
+Version: 4.3.0
+Libs: -L${libdir} -ltsm
+Cflags: -I${includedir}
