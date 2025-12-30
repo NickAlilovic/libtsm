@@ -24,9 +24,11 @@ For keyboard key-symbols, the headers of libxkbcommon are needed during
 compile-time only. libtsm ships a copy of these headers if they are not
 available at compile-time.
 
-# Armbian Build
+# Debian Package Build
 
 ```bash
+sudo apt update
+sudo apt install check cmake debhelper libxkbcommon-dev pkg-config meson ninja-build build-essential
 git clone https://github.com/NickAlilovic/libtsm.git
 cd libtsm
 git archive --prefix=libtsm-4.3.0/ -o ../libtsm_4.3.0.orig.tar.gz HEAD
