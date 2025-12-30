@@ -24,7 +24,7 @@ For keyboard key-symbols, the headers of libxkbcommon are needed during
 compile-time only. libtsm ships a copy of these headers if they are not
 available at compile-time.
 
-# Debian Package Build
+## Debian Package Build
 
 ```bash
 sudo apt update
