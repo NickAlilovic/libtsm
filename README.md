@@ -1,7 +1,5 @@
 # TSM - Terminal Emulator State Machine
 
-![Build Status](https://github.com/kmscon/libtsm/actions/workflows/meson.yml/badge.svg?branch=main)
-
 TSM is a state machine for DEC VT100-VT520 compatible terminal emulators. It
 tries to support all common standards while keeping compatibility to existing
 emulators like xterm, gnome-terminal, konsole, ..
@@ -26,29 +24,14 @@ For keyboard key-symbols, the headers of libxkbcommon are needed during
 compile-time only. libtsm ships a copy of these headers if they are not
 available at compile-time.
 
-## Download
-Releases are available at https://github.com/kmscon/libtsm/releases
+# Armbian Build
 
-## Build and install
 ```bash
-meson setup -Dtests=false build
-cd build
-meson compile
-meson install
+git clone https://github.com/NickAlilovic/libtsm.git
+cd libtsm
+git archive --prefix=libtsm-4.3.0/ -o ../libtsm_4.3.0.orig.tar.gz HEAD
+dpkg-buildpackage -us -uc
 ```
-
-### Build options
-Options may be supplied when configuring meson:
-```bash
-meson setup -Dtests=true -Dextra_debug=true -Dgtktsm=true build
-```
-The following options are available:
-
-|Name | Description | Default |
-|:---:|:---|:---:|
-| tests | Whether build the test suite | ON |
-| extra_debug | Whether to enable several non-standard debug options | OFF |
-| gtktsm | Whether to build the gtktsm example. This is linux-only as it uses epoll and friends. Therefore, is disabled by default. | OFF |
 
 ## Dependencies
 ### Required
@@ -70,10 +53,3 @@ example terminal-emulator gtkterm [gtktsm-terminal.c](src/gtktsm/gtktsm-terminal
 ## License
 This software is licensed under the terms of an MIT-like license. Please see
 [COPYING] for further information.
-
-## Contact
-This software is maintained by:
- * David Rheinsberg <david@readahead.eu>
- * Jocelyn Falempe <jfalempe@redhat.com>
-
-If you have any questions, do not hesitate to contact one of the maintainers.
